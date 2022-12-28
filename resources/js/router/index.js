@@ -6,6 +6,7 @@ import About from '../components/About.vue'
 import SinglePost from '../components/SinglePost.vue'
 import Events from '../components/Events.vue'
 import Contacts from '../components/Contacts.vue'
+import AdminMain from '../components/admin/adminMain.vue'
 
 
 // Vue.use(Router)
@@ -43,6 +44,12 @@ const routes = [
         path: '/contacts',
         name: "Contacts",
         component: Contacts
+    },
+    {
+        path: '/admin',
+        name: "AdminMain",
+        component: AdminMain
+        
     }
     
 ]
