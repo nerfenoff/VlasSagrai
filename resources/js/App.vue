@@ -7,7 +7,12 @@
             li
                 router-link.nav-link.px-2.link-secondary(:to="{name: 'Home'}") Главная
             li
+                router-link.nav-link.px-2.link-secondary(:to="{name: 'Events'}") Мероприятия
+            li
+                router-link.nav-link.px-2.link-secondary(:to="{name: 'Contacts'}") Контакты
+            li
                 router-link.nav-link.px-2.link-secondary(:to="{name: 'About'}") О нас
+                
         .col-md-3.text-end
             //- button.btn.btn-outline-primary.me-2.bvi-show(type='button') Войти
             //- button.btn.btn-primary(type='button') Зарегистрироваться

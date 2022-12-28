@@ -4,6 +4,9 @@ import {createRouter, createWebHistory} from 'vue-router'
 import Home from '../components/Home.vue'
 import About from '../components/About.vue'
 import SinglePost from '../components/SinglePost.vue'
+import Events from '../components/Events.vue'
+import Contacts from '../components/Contacts.vue'
+
 
 // Vue.use(Router)
 
@@ -27,10 +30,21 @@ const routes = [
         component: SinglePost
     },
     { 
-        path: '/About',
+        path: '/about',
         name: "About",
         component: About
     },
+    {
+        path: '/events',
+        name: "Events",
+        component: Events
+    },
+    {
+        path: '/contacts',
+        name: "Contacts",
+        component: Contacts
+    }
+    
 ]
 
 const router = createRouter({
