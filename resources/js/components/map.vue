@@ -6,7 +6,7 @@
 
         .points
           .point(v-for="post in posts" @click="scrollTo(post)")
-            img(src="/images/location.svg")
+            img(src="https://w7.pngwing.com/pngs/312/1018/png-transparent-orange-blue-and-black-logo-logo-circle-technology-circle-blue-text-information-technology.png")
             span {{post.title}}
       .map#mapMainPage
         

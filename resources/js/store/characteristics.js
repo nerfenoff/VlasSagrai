@@ -19,7 +19,7 @@ export default {
     },
     actions: {
         async getCharacteristics({commit}) {
-            var posts = await axios.get('/api/characteristics/')
+            var posts = await axios.get('/VlasSagrai/api/characteristics/')
             commit('saveCharacteristics', posts.data)
         }
         

@@ -13,11 +13,11 @@ export default {
     },
     actions: {
         async getPosts({commit}, data) {
-            var posts = await axios.get('/api/posts/', {params: data})
+            var posts = await axios.get('/VlasSagrai/api/posts/', {params: data})
             commit('setPosts', posts.data)
         },
         async getSinglePost({commit}, id) {
-            var post = await axios.get('/api/SinglePostd/', {params: {id: id}})
+            var post = await axios.get('/VlasSagrai/api/SinglePostd/', {params: {id: id}})
             return post.data
         }
         
