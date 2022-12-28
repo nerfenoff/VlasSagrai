@@ -19,6 +19,8 @@ return new class extends Migration
         });
 
         DB::table('educational_institutions')->insert([
+            ['name' => 'Бнту'],
+            ['name' => 'Бгуир '],
             ['name' => 'Школа'],
             ['name' => 'Колледж'],
             ['name' => 'Университет']

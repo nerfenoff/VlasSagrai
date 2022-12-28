@@ -6,7 +6,8 @@ export default {
         citys: null,
         educational_institutions: null,
         form_of_educations: null,
-        specializations: null
+        specializations: null,
+        special_needs: null,
     },
     mutations: {
         saveCharacteristics(state, payload) {
@@ -15,6 +16,7 @@ export default {
             state.educational_institutions = payload.educational_institutions
             state.form_of_educations = payload.form_of_educations
             state.specializations = payload.specializations
+            state.special_needs = payload.special_needs
         }
     },
     actions: {
@@ -40,5 +42,9 @@ export default {
         specializations(state) {
             return state.specializations
         },
+        special_needs(state) {
+            return state.special_needs
+        },
+        
     }
 }

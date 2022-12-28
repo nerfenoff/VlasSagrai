@@ -16,6 +16,9 @@ export default {
     },
     components: {
         newPosts
+    },
+    beforeMount() {
+        
     }
 }
 </script>

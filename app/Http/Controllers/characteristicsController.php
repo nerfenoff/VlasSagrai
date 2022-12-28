@@ -8,7 +8,7 @@ use App\Models\Education_level;
 use App\Models\Educational_institution;
 use App\Models\Form_of_education;
 use App\Models\Specializations;
-
+use App\Models\Special_need;
 
 class characteristicsController extends Controller
 {
@@ -18,6 +18,8 @@ class characteristicsController extends Controller
         $educational_institution = Educational_institution::all();
         $form_of_education = Form_of_education::all();
         $specializations = Specializations::all();
+        $special_needs = Special_need::all();
+        
         
 
         return json_encode(
@@ -26,7 +28,8 @@ class characteristicsController extends Controller
                 'citys' => $city,
                 'educational_institutions' => $educational_institution,
                 'form_of_educations' => $form_of_education,
-                'specializations' => $specializations
+                'specializations' => $specializations,
+                'special_needs' => $special_needs
             ]
         );
     }

@@ -5,10 +5,10 @@
             .col
                 h3.h3 Фильтр поиска
                 form(@submit.prevent="")
-                    //- .form-group
-                    //-     select.form-control(v-model="selectedSpecialization")
-                    //-         option(disabled selected :value="-1") Специальность
-                    //-         option(v-for="specialization in specializations" :value="specialization.id") {{ specialization.name }}
+                    .form-group
+                        select.form-control(v-model="selectedSpecialization")
+                            option(disabled selected :value="-1") Специальность
+                            option(v-for="specialization in specializations" :value="specialization.id") {{ specialization.name }}
                     .form-group
                         select.form-control(v-model="selectedEducation_level")
                             option(disabled selected :value="-1") Уровень образования
@@ -29,6 +29,13 @@
                         select.form-control(v-model="selectedForm_of_education")
                             option(disabled selected :value="-1") Форма получения образования
                             option(v-for="form_of_education in form_of_educations" :value="form_of_education.id") {{ form_of_education.name }}
+                    .form-group
+                        select.form-control(v-model="selectedSpecial_need")
+                            option(disabled selected :value="-1") Особые потребности
+                            option(v-for="special_need in special_needs" :value="special_need.id") {{ special_need.name }}
+                    
+                    
+                    
                     button.btn.btn-primary(@click="updatePosts(event)") Фильтр
         .row
             .col
@@ -67,7 +74,10 @@
                 button.btn.btn-light.ml-0(type='button' v-if="selectedCity != -1" @click="selectedCity = -1") {{ getCityName(selectedCity) }}
                 button.btn.btn-light.ml-0(type='button' v-if="selectedEducational_institution != -1" @click="selectedEducational_institution = -1") {{ getEducational_institutionName(selectedEducational_institution) }}
                 button.btn.btn-light.ml-0(type='button' v-if="selectedForm_of_education != -1" @click="selectedForm_of_education = -1") {{ getForm_of_educationName(selectedForm_of_education) }}
+                button.btn.btn-light.ml-0(type='button' v-if="selectedSpecial_need != -1" @click="selectedSpecial_need = -1") {{ getSpecial_need(selectedSpecial_need) }}
+                
                 button.btn.btn-light.ml-0(type='button' v-if="barrierFree" @click="barrierFree = false") Наличие безбарьерной среды
+                getSpecial_need
         .row
             .col
                 div
@@ -109,6 +119,7 @@ export default {
             selectedCity: -1,
             selectedEducational_institution: -1,
             selectedForm_of_education: -1,
+            selectedSpecial_need: -1,
             barrierFree: false,
 
             activeTheme: 1,
@@ -153,6 +164,10 @@ export default {
         specializations() {
             return this.$store.getters.specializations
         },
+        special_needs() {
+            return this.$store.getters.special_needs
+        },
+
         totalItems() {
             return this.$store.getters.pages
         }
@@ -184,6 +199,10 @@ export default {
             let result = this.form_of_educations.find(el => el.id == id)
             return result.name
         },
+        getSpecial_need(id) {
+            let result = this.special_needs.find(el => el.id == id)
+            return result.name
+        },
 
         changeTheme(theme) {
             document.body.className = this.themes[this.activeTheme];
@@ -202,7 +221,8 @@ export default {
                 selectedCity: this.selectedCity,
                 selectedEducational_institution: this.selectedEducational_institution,
                 selectedForm_of_education: this.selectedForm_of_education,
-                barrierFree: this.barrierFree
+                barrierFree: this.barrierFree,
+                selectedSpecial_need: this.selectedSpecial_need
             }
 
             this.$store.dispatch('getPosts', filterData)

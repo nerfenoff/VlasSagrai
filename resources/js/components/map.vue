@@ -6,7 +6,7 @@
 
         .points
           .point(v-for="post in posts" @click="scrollTo(post)")
-            img(src="http://y91734ir.beget.tech/wp-content/uploads/2020/05/s1201-восстановлено.png")
+            img(src="https://www.clipartmax.com/png/middle/10-103178_eat-play-do-icon-map-marker.png")
             span {{post.title}}
       .map#mapMainPage
         

@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('specializations', function (Blueprint $table) {
+        Schema::create('special_needs', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
         });
-        DB::table('specializations')->insert([
-            ['name' => 'ПОИТ'],
-            ['name' => 'Правоведы'],
-            ['name' => 'Бухгалтера'],
-            ['name' => 'Кассиры'],
+
+        DB::table('special_needs')->insert([
+            ['name' => 'ДЦП'],
+            ['name' => 'Дальтонизм'],
+            ['name' => 'Болезни психического характера'],
         ]);
     }
 
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('specializations');
+        Schema::dropIfExists('special_needs');
     }
 };
