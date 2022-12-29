@@ -6,7 +6,7 @@
 
         .points
           .point(v-for="post in posts" @click="scrollTo(post)")
-            img(src="https://www.clipartmax.com/png/middle/10-103178_eat-play-do-icon-map-marker.png")
+            //- img(src="https://www.clipartmax.com/png/middle/10-103178_eat-play-do-icon-map-marker.png")
             span {{post.title}}
       .map#mapMainPage
         

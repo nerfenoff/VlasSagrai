@@ -22,5 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/posts', [postController::class, 'index']);
+Route::post('/postsSave', [postController::class, 'store']);
 Route::get('/SinglePostd', [postController::class, 'singlePost']);
 Route::get('/characteristics', [characteristicsController::class, 'index']);

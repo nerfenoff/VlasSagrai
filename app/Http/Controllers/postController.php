@@ -75,4 +75,59 @@ class postController extends Controller
         // dd($post);
         return response()->json($post);
     }
+
+    public function store(Request $request) {
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'content' => 'required',
+            'imgUrl' => 'required',
+            'address' => 'required',
+            'coords' => 'required',
+
+            'selectedSpecialization' => 'required',
+            'selectedEducation_level' => 'required',
+            'selectedCity' => 'required',
+            'selectedEducational_institution' => 'required',
+            'selectedForm_of_education' => 'required',
+            'selectedSpecial_need' => 'required',
+            'barrierFree' => 'required',
+        ]);
+        $input = $request->all();
+        
+        $createdPost = Post::create([
+            'title' => $input['title'],
+            'description' => $input['description'],
+            'content' => $input['content'],
+        ]);
+        $postId = $createdPost->id;
+
+        PostData::create([
+            'post_data_id' => $postId,
+
+            'image' => $input['imgUrl'],
+            'phone' => $input['phone'],
+            'address' => $input['address'],
+            'coords' => $input['coords'],
+            'education_level' => $input['selectedEducation_level'],
+            'city' => $input['selectedCity'],
+            'educational_institution' => $input['selectedEducational_institution'],
+            'form_of_education' => $input['selectedForm_of_education'],
+            'the_presence_of_a_barrier_free_environment' => $input['barrierFree'] === true || $input['barrierFree'] == 'true',
+        ]);
+
+        foreach($input['selectedSpecialization'] as $selectedSpecialization) {
+            Selected_specialization::create([
+                'post_data_id' => $postId,
+                'specialization_id' => $selectedSpecialization
+            ]);
+        }
+        foreach($input['selectedSpecial_need'] as $selectedSpecial_need) {
+            Selected_special_need::create([
+                'post_data_id' => $postId,
+                'special_needs_id' => $selectedSpecial_need
+            ]);
+        }
+        return response()->json(true);
+    }
 }

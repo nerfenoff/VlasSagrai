@@ -19,6 +19,10 @@ export default {
         async getSinglePost({commit}, id) {
             var post = await axios.get('/api/SinglePostd/', {params: {id: id}})
             return post.data
+        },
+        async addNewPost({commit}, data) {
+            var post = await axios.post('/api/postsSave/', data)
+            return post.data
         }
         
     }, 

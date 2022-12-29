@@ -9,4 +9,8 @@ class Selected_special_need extends Model
 {
     public $timestamps = false;
     protected $table = 'selected_special_needs';
+    protected $fillable = [
+        'post_data_id',
+        'special_needs_id',
+    ];
 }
